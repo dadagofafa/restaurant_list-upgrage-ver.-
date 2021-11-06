@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
-
 router.get('/new', (req, res) => {
   res.render('new')
 })
@@ -11,18 +10,6 @@ router.post("/new", (req, res) => {
   Restaurant.create(req.body)
     .then(() => res.redirect("/"))
     .catch(err => console.log(err))
-})
-
-router.get('/search', (req, res) => {
-  if (!req.query.keywords) {
-    res.redirect('/')
-  }
-
-  const keyword = req.query.keywords
-  const restaurants = restaurantList.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.includes(keyword)
-  })
-  res.render('index', { restaurants: restaurants, keyword })
 })
 
 router.get('/:id', (req, res) => {

@@ -50,6 +50,11 @@ header {
   border-color: #ced4da;
 }
 
+.custom-select {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+}
+
 .card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
