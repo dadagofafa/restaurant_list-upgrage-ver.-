@@ -1,5 +1,5 @@
-const Restaurant = require('../restaurant')
-const restaurantList = require('../../restaurant.json').results
+const Restaurant = require('../Restaurant')
+const restaurantList = require('../../restaurants.json').results
 const db = require('../../config/mongoose')
 
 db.once('open', () => {
