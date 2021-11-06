@@ -1,11 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
-
-const Restaurant = require('./models/restaurant')
-const restaurantList = require('./restaurant')
-const restaurant = require('./models/restaurant')
 const routes = require('./routes')
 require('./config/mongoose')
 
