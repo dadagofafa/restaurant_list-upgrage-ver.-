@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Restaurant = require('../../models/restaurant')
+const Restaurant = require('../../models/Restaurant')
 
 router.get('/new', (req, res) => {
   res.render('new')
@@ -30,12 +30,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const name = req.body.name
-  return Restaurant.findById(id)
-    .then(restaurant => {
-      restaurant.name = name
-      return restaurant.save()
-    })
+  Restaurant.findByIdAndUpdate(id, req.body)
     .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
