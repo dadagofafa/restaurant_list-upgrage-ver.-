@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Restaurant = require('../../models/restaurant')
+const Restaurant = require('../../models/Restaurant')
 
 router.get('/', (req, res) => {
   Restaurant.find()
@@ -24,7 +24,7 @@ router.get('/search', (req, res) => {
       const filterRestaurantsData = restaurants.filter(
         data => 
           data.name.toLowerCase().includes(keyword) || 
-          data.category.includes(keyword)
+          data.category.toLowerCase().includes(keyword)
       )
       res.render('index', { restaurants: filterRestaurantsData, keyword })
   })
